@@ -1,0 +1,116 @@
+﻿<!-- detail.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細 - THE GOAT FEEL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Font Awesome CDN (無料アイコンライブラリ) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>
+            <a href="index.html">
+                <img src="img/99A8F6C1-041A-4F2C-8C58-B03872F61AA8.jpeg" alt="ロゴ">
+            </a>
+        </h1>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="product.html">PRODUCT</a>
+            <a href="news.html">NEWS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="header-icons">
+            <!-- 検索アイコン -->
+            <i class="fas fa-search"></i>
+
+            <!-- Instagramアイコン -->
+            <a href="https://www.instagram.com/thegoatfeel_clothing/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <!-- カートアイコン -->
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
+
+    </header>
+
+    <main class="detail-page">
+        <h2>HYPERDROP : Logo Sweat (White)</h2>
+
+        <div class="detail-container">
+
+            <!-- 左側：画像 -->
+            <div class="image-side">
+                <div class="main-image">
+                    <img src="img/スクリーンショット 2025-10-02 091508.png" id="main-img" alt="商品画像">
+                </div>
+               
+                <div class="thumbnail-images">
+                    <img src="img/スクリーンショット 2025-10-02 091508.png" alt="サムネイル1" class="thumb">
+                    <img src="img/96C5E733-2876-47E3-8633-2E8C51FE1E88.jpeg" alt="サムネイル2" class="thumb">
+                    <img src="img/スクリーンショット 2025-10-09 133706.png" alt="サムネイル3" class="thumb">
+                </div>
+             </div>
+            
+            <!-- 右側：テキスト -->
+            <div class="detail-info">
+                <p>価格：<strong>¥6,500</strong></p>
+                <p>素材：コットン100%</p>
+                <p>
+                    サイズ：S / M / L / XL<br>
+                    身丈(cm): S:67 / M:70 / L:73 / XL:76 / XXL:79<br>
+                    身幅(cm): S:50 / M:54 / L:57 / XL:60  / XXL:63<br>
+                    肩幅(cm): S:48 / M:51 / L:54 / XL:57  / XXL:60<br>
+                    袖丈(cm): S:21 / M:22 / L:23 / XL:24  / XXL:25<br>
+                    <br>
+                    モデル 165cm / XL (Kanata)
+                </p>
+                <p>
+                    商品概要：GOAT（Greatest Of All Time）- 史上最高。<br>
+                    それは、他者に与えられる栄誉ではなく、己の内に積もる問いと、歩みによってのみ形を成すものだ。
+                    THE GOAT FEEL は、そんな“未完成の美学”とともにあり、完成を求めず、進化し続ける者の旅路に寄り添う一着。
+                </p>
+
+                <div class="purchase-options">
+                    <select id="select-size" class="select-size">
+                        <option disabled selected>size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+
+                    <select  id="select-quantity" class="select-quantity">
+                        <option disabled selected>個数</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <button class="add-to-cart">カートに入れる</button>
+                </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© THE GOAT FEEL</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+﻿/*CSS*/
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+/*ローディング画面*/
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:#000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+    #loading.fadeout {
+        animation: fadeScaleRotateOut 1.8s forwards;
+    }
+
+    @keyframes fadeScaleRotateOut {
+        0% {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(1.2) rotate(0deg);
+        }
+    }
+
+
+/*ヘッダー*/
+
+header {
+    position: relative;
+}
+    header h1 img {
+  width: 250px; /* 横幅だけ指定、縦は自動で縮む */
+  height: 250px; /* 高さは自動調整して、比率を保つ */
+}
+
+    header nav {
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+        header nav a {
+            display: inline-block;
+            padding: 12px 22px;
+            font-family: 'Impact', 'Anton', sans-serif;
+            background: #000;
+            border: 4px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.15s;
+        }
+
+            /* ホバーで “ドカッ” と白黒反転 */
+            header nav a:hover {
+                background: #fff;
+                color: #000;
+                transform: translateY(-3px);
+            }
+
+
+/* ヘッダーアイコンの配置 */
+.header-icons {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    display: flex;
+    gap: 25px;
+    font-size: 30px;
+    align-items: center;
+}
+
+    .header-icons i {
+        color: #fff;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .header-icons i:hover {
+            color: #0094ff;
+    }
+
+
+
+
+/*カート*/
+.cart-link{
+    position:relative;
+    display:inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 13px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    display: none; /* ← 最初は表示しない */
+}
+
+
+.add-to-cart {
+    background-color: #0094ff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .add-to-cart:hover {
+        background-color: #0026ff;
+        color: #fff;
+    }
+
+
+
+/*検索*/
+.search-bar {
+    display: none;
+    margin: 20px;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    right: 13vw;
+    z-index:10000;
+}
+    .search-bar input {
+        padding: 10px;
+        width:300px;
+        border-radius: 4px;
+    }
+
+    .search-bar button {
+        padding: 8px 12px;
+        background-color: #0094ff;
+        color: white;
+        /*border: none;*/
+        border-radius: 4px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+        .search-bar button:hover {
+            background-color: #0077cc;
+        }
+
+
+/*スライド*/
+.slideshow{
+    overflow:hidden;
+    position:relative;
+    /*min-width:960px;*/
+    height:465px;
+    margin-bottom:30px;
+}
+
+.slideshow img{
+    display:none;
+    position:absolute;
+    left:50%;  /*親の左から 50%の位置（＝真ん中） に画像の左端を置く*/
+    margin-left:-425px; /*-画像の半分の幅;*/
+}
+
+h2 {
+    font-family: 'Impact', 'Anton', sans-serif;
+}
+
+.hero p {
+    font-family: 'Impact', 'Anton', sans-serif;
+}
+
+
+/*商品*/
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* ← これを追加すると折り返す */
+}
+
+.item {
+  width: 300px;                 /* カードの幅 */
+  height: auto;                /* カードの高さを固定 */
+  display: flex;                
+  flex-direction: column;       /* 縦に並べる */
+  justify-content: space-between; /* 上下に均等配置 */
+  background-color: #808080;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+}
+
+.item p {
+        margin: 10px 0 0 0;
+        flex-grow: 1; /* 余ったスペースを商品名に使って高さ揃え */
+        text-align:left
+    }
+
+
+/* 商品画像リンク（画像を中央に） */
+.item-image-link img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 商品画像リンクのaタグ自体には特別な装飾は不要 */
+.item-image-link {
+    display: block;
+    text-decoration: none;
+}
+
+/* ボタン用のリンク */
+.item-button {
+    display: inline-block;
+    background-color: #0094ff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.item a:hover {
+            background-color: #0026ff;
+            color: #fff;
+        }
+
+
+
+
+
+/*detail.html*/
+.detail-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.detail-page h2{
+    text-align:center;
+}
+
+
+
+    .detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.image-side {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+    .main-image img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom:20px;
+}
+
+.detail-info {
+    max-width: 400px;
+    color: #fff;
+}
+
+
+.thumbnail-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 440px; /* 3枚分の幅くらい */
+}
+.thumbnail-images img {
+    width: 100px; /* 横幅100px */
+    height: 120px;
+    cursor: pointer; /* クリックできるって分かるようにカーソル変わる */
+    margin: 5px; /* 画像の間にすこし隙間をつくる */
+    border: 4px solid transparent; /* 枠線だけど普段は透明 */
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+
+.thumbnail-images img:hover {
+    border-color: #0094ff; /* ホバーで枠が青くなる */
+}
+
+.purchase-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.purchase-options select {
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+}
+
+
+
+
+
+/*cart.html*/
+/* ========================
+   カートページの見た目
+======================== */
+
+/* 全体の幅を整える */
+.cart-page {
+    max-width: 900px; /* 横幅を制限 */
+    margin: 40px auto; /* 中央寄せ */
+    padding: 20px;
+    background-color: #444; 
+    border-radius: 8px;
+}
+
+/* カートが空のときのテキスト */
+.cart-empty {
+    color: #aaa;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 表のスタイル */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse; /* 線をくっつける */
+    margin-top: 20px;
+}
+
+    .cart-table th,
+    .cart-table td {
+        border-bottom: 1px solid #444;
+        padding: 10px;
+        text-align: center;
+        background-color: #222;
+    }
+
+    /* 見出し部分（th）の色 */
+    .cart-table th {
+        background-color: #222;
+        color: #fff;
+    }
+
+/* 商品画像を小さく整える */
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 削除ボタン */
+.remove-btn {
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .remove-btn:hover {
+        background-color: #cc0000;
+    }
+
+/* 合計金額部分 */
+.cart-total {
+    margin-top: 30px;
+    text-align: right;
+}
+
+    .cart-total p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+.checkout-btn {
+    background-color: #0094ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .checkout-btn:hover {
+        background-color: #0066cc;
+    }
+
+
+
+
+/*ABOUTページ*/
+.about-section {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/スクリーンショット 2025-10-09 133205.png') center/cover no-repeat;
+    opacity: 0.5;
+    z-index: 1;
+
+    pointer-events: none; /* ← これを追加 */
+}
+
+.about-title, .about-text, header {
+    position: relative;
+    z-index: 2;
+}
+
+.about-title {
+    font-family: 'Impact', 'Anton', sans-serif;
+    font-size: 48px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/*NEWSページ*/
+.news-section {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center; /* 中の文字を中央寄せ */
+}
+
+.news-section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.news-item {
+    width: 1200px;
+    background-color: #222;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+    display: inline-block; /* 横幅自体をコンテンツサイズに */
+}
+
+    .news-item:hover {
+        transform: translateY(-5px);
+    }
+
+.news-date {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #efefef;
+    letter-spacing: 1px;
+}
+
+.news-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* 左右の余白を自動にして中央に */
+    max-width: 900px; /* 写真の最大幅を指定 */
+}
+
+.news-description {
+    padding: 15px 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+
+/*CONTACTページ*/
+.contact-section {
+    max-width: 360px; /* ← 横幅かなりコンパクト */
+    margin: 80px auto;
+    padding: 10px;
+    color: #eee;
+}
+
+/* タイトル */
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+/* 説明 */
+.contact-section p {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+/* フォーム */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    /* ラベル */
+    .contact-form label {
+        font-size: 0.8rem;
+        color: #ccc;
+    }
+
+    /* 入力欄（かなり小さめ） */
+    .contact-form input,
+    .contact-form textarea {
+        width: 240px; /* ← 横幅を大幅縮小！ */
+        padding: 5px 8px; /* ← 高さもコンパクト */
+        border: 1px solid #333;
+        border-radius: 4px;
+        background: #1b1b1b;
+        color: #fff;
+        font-size: 0.95rem;
+        margin: 0 auto; /* ← これで中央寄せ！ */
+    }
+
+    /* テキストエリア小さめ */
+    .contact-form textarea {
+        height: 90px;
+    }
+
+/* ボタン */
+.contact-btn {
+    width: 120px; /* ← ボタンも小さく */
+    padding: 6px 0;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin: 10px auto 0;
+    cursor: pointer;
+}
+
+    .contact-btn:hover {
+        background: #000;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+
+
+
+    /*YouTube*/
+.youtube-section {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+.youtube-wrapper {
+    aspect-ratio: 16 / 9;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+    .youtube-wrapper iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+.youtube-thumb {
+    width: 100%;
+    max-width: 600px; /* 好きなサイズに調整 */
+    height: auto; /* 16:9比率のまま自動調整 */
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.3s;
+}
+
+    .youtube-thumb:hover {
+        transform: scale(1.07); /* ちょっと拡大してクリック感 */
+    }
+
+.youtube-section p {
+    font-family: 'Impact', 'Anton', sans-serif;
+}

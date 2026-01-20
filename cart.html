@@ -1,0 +1,123 @@
+﻿<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GOAT FEEL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Font Awesome CDN (無料アイコンライブラリ) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="index.html">
+                <img src="img/99A8F6C1-041A-4F2C-8C58-B03872F61AA8.jpeg" alt="ロゴ">
+            </a>
+        </h1>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="product.html">PRODUCT</a>
+            <a href="news.html">NEWS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="header-icons">
+            <!-- 検索アイコン -->
+            <i class="fas fa-search"></i>
+
+            <!-- Instagramアイコン -->
+            <a href="https://www.instagram.com/thegoatfeel_clothing/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <!-- カートアイコン -->
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
+
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="キーワードを入力">
+        <button>検索</button>
+    </div>
+
+
+    <!-- ========== メインコンテンツ ========== -->
+    <main class="cart-page">
+        <!-- cart-page というCSSクラスでスタイルを当てる -->
+
+        <h2>ショッピングカート</h2> <!-- ページタイトル -->
+        <!-- カートが空のときに表示される部分（後でJSで切り替え予定） -->
+        <p class="cart-empty">現在、カートに商品はありません。</p>
+
+        <!-- ↓カートの中身を表形式で見せる部分 -->
+        <table class="cart-table">
+            <thead>
+                <!-- 表のヘッダー部分 -->
+                <tr>
+                    <!-- 1行 -->
+                    <th>商品画像</th>
+                    <th>商品名</th>
+                    <th>サイズ</th>
+                    <th>数量</th>
+                    <th>価格</th>
+                    <th>小計</th>
+                    <th>削除</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                <!-- 実際の中身（今回はダミー） -->
+                <tr>
+                    <td><img src="img/ECA5BB59-5D33-4B6A-8F41-D41DB43CEA75.jpeg" alt="商品" class="cart-item-img"></td>
+                    <td>First Drop T-Shirts (Black)</td>
+                    <td>M</td>
+                    <td>1</td>
+                    <td>￥3,500</td>
+                    <td>￥3,500</td>
+                    <td><button class="remove-btn">削除</button></td>
+                </tr>
+
+                <tr>
+                    <td><img src="img/スクリーンショット 2025-10-02 110953.png" alt="商品" class="cart-item-img"></td>
+                    <td>HYPERDROP: Logo Sweat(Black)</td>
+                    <td>L</td>
+                    <td>1</td>
+                    <td>￥6,500</td>
+                    <td>￥13,000</td>
+                    <td><button class="remove-btn">削除</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 合計金額部分 -->
+        <div class="cart-total">
+            <p>合計金額：<strong>￥16,500</strong></p>
+            <button class="checkout-btn">購入手続きへ進む</button>
+        </div>
+
+    </main>
+
+    <button id="reset-cart">カートをリセット</button>
+
+
+    <!-- ========== フッター ========== -->
+    <footer>
+        <p>© THE GOAT FEEL</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

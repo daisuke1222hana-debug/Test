@@ -1,0 +1,89 @@
+﻿<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細 - THE GOAT FEEL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Font Awesome CDN (無料アイコンライブラリ) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="loading">
+        <img src="img/99A8F6C1-041A-4F2C-8C58-B03872F61AA8.jpeg" alt="Loading">
+    </div>
+
+    <header>
+        <h1>
+            <a href="index.html">
+                <img src="img/99A8F6C1-041A-4F2C-8C58-B03872F61AA8.jpeg" alt="ロゴ">
+            </a>
+        </h1>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="product.html">PRODUCT</a>
+            <a href="news.html">NEWS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div class="header-icons">
+            <!-- 検索アイコン -->
+            <i class="fas fa-search"></i>
+
+            <!-- Instagramアイコン -->
+            <a href="https://www.instagram.com/thegoatfeel_clothing/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <!-- カートアイコン -->
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </a>
+        </div>
+
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="キーワードを入力">
+        <button>検索</button>
+    </div>
+
+
+    <section class="contact-section">
+        <h2>CONTACT</h2>
+        <p>
+            お問い合わせ内容を入力のうえ、送信してください。<br />
+            ＊InstagramのDMからのお問い合わせも可能です。
+        </p>
+
+        <form action="send_mail.php" method="post" class="contact-form">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit" class="contact-btn">SEND</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© THE GOAT FEEL</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
